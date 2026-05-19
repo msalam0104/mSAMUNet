@@ -1,0 +1,55 @@
+# Python 3.10 | PyTorch 2.6.0 | CUDA 12.4
+
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core environment
+  - python=3.10
+  - pip
+
+  # PyTorch + CUDA
+  - pytorch=2.6.0
+  - torchvision=0.21.0
+  - pytorch-cuda=12.4
+
+  # Scientific computing & data processing
+  - numpy=1.26.4
+  - scipy
+  - scikit-image
+  - scikit-learn=1.6.1
+  - pandas=2.2.3
+  - matplotlib=3.10.1
+  - numba=0.61.2
+
+  # Image processing
+  - opencv=4.11
+  - tifffile
+  - imagecodecs
+  - pillow
+  - h5py=3.13.0
+  - zarr=2.18.3
+
+  # Utilities
+  - tqdm=4.67.1
+  - tensorboard=2.19.0
+
+  # Install remaining packages via pip
+  - pip:
+      - monai==1.4.0
+      - torchmetrics==1.7.3
+      - wandb==0.19.11
+      - roifile==2025.5.10
+      - natsort==8.4.0
+      - fastremap==1.16.1
+
+      # Segment Anything / Micro-SAM ecosystem
+      # Pinned to exact commits used in manuscript experiments
+      - git+https://github.com/facebookresearch/segment-anything.git@dca509fe793f601edb92606367a655c15ac00fdf
+      - git+https://github.com/constantinpape/elf.git@13dea16623592e187d6578b65c62ff2d716b9ef9
+      - git+https://github.com/constantinpape/torch-em.git@baee59e4bbf2568a60b8864929a6d247b5425c70
+      - git+https://github.com/computational-cell-analytics/micro-sam.git@4025ad8dd24ab31defe201c327804c5d415c794b
+      - git+https://github.com/ChaoningZhang/MobileSAM.git@34bbbfdface3c18e5221aa7de6032d7220c6c6a1
